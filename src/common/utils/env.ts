@@ -4,6 +4,8 @@ class Env {
     EXPIRETIME = process.env.EXPIRETIME;
     PORT = process.env.PORT;
     DATABASE_URL = process.env.DATABASE_URL;
+    RESEND_API_KEY = process.env.RESEND_API_KEY;
+    VERIFICATION_URL = process.env.VERIFICATION_URL;
 
     constructor(){
         if(!this.ACCESS_TOKEN){
@@ -20,6 +22,12 @@ class Env {
         }
         if(!this.DATABASE_URL){
             throw new Error("DATABASE_URL is not defined");
+        }
+        if(!this.RESEND_API_KEY){
+            throw new Error("RESEND_API_KEY is not defined");
+        }
+        if(!this.VERIFICATION_URL){
+            throw new Error("VERIFICATION_URL is not defined");
         }
     }
 }

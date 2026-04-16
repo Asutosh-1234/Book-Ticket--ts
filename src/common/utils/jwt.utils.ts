@@ -23,7 +23,15 @@ class JwtUtils {
         return jwt.verify(token, env.REFRESH_TOKEN!);
     };
     
-    
+    generateEmailVerificationToken = (payload: any) => {
+        return jwt.sign(payload, env.ACCESS_TOKEN!, {
+            expiresIn: env.EXPIRETIME as any,
+        });
+    };
+
+    verifyEmailVerificationToken = (token: string) => {
+        return jwt.verify(token, env.ACCESS_TOKEN!)
+    };
 }   
 
 export default new JwtUtils();
