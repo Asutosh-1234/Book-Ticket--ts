@@ -13,7 +13,7 @@ class Email{
                 <h1>Welcome to our platform</h1>
                 <p>Please verify your email address by clicking on the link below:</p>
                 <div style="margin: 20px 0; text-align: center;">
-                    <a href="http://localhost:3000/verify-email?token=${token}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Verify Email</a>
+                    <a href="${process.env.VERIFICATION_URL}/verify-email?token=${token}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Verify Email</a>
                 </div>
                 <p>If you did not register for this email, please ignore this email.</p>
                 <p>Thank you for using our platform.</p>
@@ -21,6 +21,7 @@ class Email{
             `
         });
     }
+
     static async seatConformationEmail(email:string,seat: string){
         resend.emails.send({
             from: 'onboarding@resend.dev',
@@ -37,9 +38,3 @@ class Email{
         });
     }
 }
-
-
-
-
-
-
