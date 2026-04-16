@@ -7,11 +7,15 @@
     "start": "bun run server.ts",
     "dev": "bun run server.ts --watch",
     "build": "tsc",
-    "server": "nodemon ./dist/src/server.js"
+    "server": "nodemon ./dist/src/server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/cookie-parser": "^1.4.10",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/pg": "^8.20.0",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0"
