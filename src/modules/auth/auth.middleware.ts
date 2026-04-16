@@ -1,8 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import ApiError from "../../common/utils/api.error.js";
 import JwtUtils from "../../common/utils/jwt.utils.js";
-import type { ZodObject } from "zod";
-import { ZodError } from "zod";
 
 interface CustomRequest extends Request {
     user?: any;
