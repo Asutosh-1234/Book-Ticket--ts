@@ -8,6 +8,20 @@
       "when": 1775825309502,
       "tag": "0000_modern_edwin_jarvis",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1776359547468,
+      "tag": "0001_giant_nuke",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1776362222937,
+      "tag": "0002_goofy_bedlam",
+      "breakpoints": true
     }
   ]
 }

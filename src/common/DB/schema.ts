@@ -17,10 +17,12 @@ export const users = pgTable('users', {
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
     email: text('email').notNull(),
+    isEmailVerified: text("is_email_verified").default("false").notNull(),
     password: text('password').notNull(),
     createdAt: timestamp('created_at').defaultNow(),
     updatedAt: timestamp('updated_at').defaultNow(),
     refreshToken: text('refresh_token'),
+    emailVerificationToken: text('email_verification_token'),
     refreshTokenExpiry: timestamp('refresh_token_expiry'),
 });
 
