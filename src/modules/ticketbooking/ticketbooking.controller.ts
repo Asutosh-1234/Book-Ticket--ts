@@ -3,11 +3,13 @@ import ApiResponse from "../../common/utils/api.response.ts";
 import ApiError from "../../common/utils/api.error.ts";
 import { bookings, db, seats, users } from "../../common/DB/schema.ts";
 import { eq } from "drizzle-orm";
+import Email from "../../common/utils/email.utils.ts";
+import type { bookingDto } from "./dto/booking.dto.ts";
 
 
 const booking = async (req: Request, res: Response) => {
     try {
-        const { seatNumber, userId, email } = req.body;
+        const { seatNumber, userId, email } = req.body as bookingDto;
         console.log(seatNumber, userId, email);
 
         if (!seatNumber || !userId || !email) {
@@ -35,6 +37,9 @@ const booking = async (req: Request, res: Response) => {
             }).returning({ id: bookings.id, userId: bookings.userId, seatId: bookings.seatId });
             return ticket;
         })
+        
+        Email.seatConformationEmail(email,seatNumber);
+
         ApiResponse.created(res, "Ticket booked successfully", ticket);
     } catch (error) {
         ApiError.serverError();
