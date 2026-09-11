@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: abc
+      POSTGRES_PASSWORD: abc
+      POSTGRES_DB: abc
+    ports:
+      - "5432:5432"
+
