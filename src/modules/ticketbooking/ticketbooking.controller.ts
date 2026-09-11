@@ -17,7 +17,7 @@ const booking = async (req: Request, res: Response) => {
 
         const ticket = await db.transaction(async (tx) => {
             const user = await db.select({ id: users.id }).from(users).where(eq(users.email, email));
-            
+
             if (!user[0]) {
                 return ApiError.badRequestError(res, "User not found");
             }
@@ -26,7 +26,8 @@ const booking = async (req: Request, res: Response) => {
             const checkIsBooked = await tx
             .select()
             .from(seats)
-            .where(eq(seats.seatNumber, seatNumber));
+            .where(eq(seats.seatNumber, seatNumber))
+            .for("update",{skipLocked: true});
 
             if (checkIsBooked[0]?.isBooked) {
                 return ApiError.badRequestError(res, "Seat is already booked");

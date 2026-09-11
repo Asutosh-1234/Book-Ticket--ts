@@ -10,7 +10,8 @@
     "server": "nodemon ./dist/src/server.js",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "test:demo": "bun run src/test/demoSeats.test.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
